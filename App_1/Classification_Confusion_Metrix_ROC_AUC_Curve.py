@@ -80,4 +80,4 @@ if uploaded_file is not None:
     plot_roc_curve(y_test, y_pred_prob)
 
     # to run this Streamlit App execute this below cammand in terminal or cmd within the same directory use cd to get into the directory
-    # Streamlit run Classification_Confusion_Metrix_&_ROC_AUC_Curve.py
+    # streamlit run Classification_Confusion_Metrix_&_ROC_AUC_Curve.py
