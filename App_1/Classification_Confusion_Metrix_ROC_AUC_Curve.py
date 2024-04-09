@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix, roc_curve, auc
+from sklearn.metrics import confusion_matrix, roc_curve, auc, accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -35,6 +35,7 @@ def plot_roc_curve(y_true, y_pred_prob):
     plt.title('ROC Curve')
     plt.legend(loc='lower right')
     st.pyplot()
+    
 
 # Streamlit UI
 st.title('Classification Model Evaluation')
@@ -78,6 +79,13 @@ if uploaded_file is not None:
     # Evaluate
     plot_confusion_matrix(y_test, y_pred)
     plot_roc_curve(y_test, y_pred_prob)
+
+    # Calculate accuracy
+    accuracy = accuracy_score(y_test, y_pred)
+
+    # Display accuracy
+    st.write(f"Accuracy Score: {accuracy}")
+
 
     # to run this Streamlit App execute this below commands in terminal or cmd within the same directory use cd to get into the directory
     # streamlit run Classification_Confusion_Metrix_ROC_AUC_Curve.py
