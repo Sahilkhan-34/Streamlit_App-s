@@ -39,9 +39,10 @@ def plot_roc_curve(y_true, y_pred_prob):
 
 # Streamlit UI
 st.title('Classification Model Evaluation')
+st.subheader("Upload A Preprocessed And Standardize Data file")
 
 # File uploader
-uploaded_file = st.file_uploader("Upload A Preprocessed And Standardize Data file", type=["csv"])
+uploaded_file = st.file_uploader("Upload A Data file", type=["csv"])
 
 if uploaded_file is not None:
     # Read data
@@ -84,7 +85,7 @@ if uploaded_file is not None:
     accuracy = accuracy_score(y_test, y_pred)
 
     # Display accuracy
-    st.write(f"Accuracy Score: {accuracy}")
+    st.markdown(f"### Accuracy Score: {accuracy}")
 
 
     # to run this Streamlit App execute this below commands in terminal or cmd within the same directory use cd to get into the directory
