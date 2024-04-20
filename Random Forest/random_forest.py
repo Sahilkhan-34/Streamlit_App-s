@@ -20,14 +20,14 @@ from sklearn.model_selection import GridSearchCV, cross_val_score
 st.title("Random Forest Hyperparameter Tuning & Evaluation")
 
 # Upload a file
-file = st.sidebar.file_uploader("Upload CSV File", type=['csv'])
+file = st.sidebar.file_uploader("**Upload Preprocessed CSV file Only**", type=['csv'])
 
 if file is not None:
     df = pd.read_csv(file)
 
     #   select the target column
     # st.subheader("Select the Target Colunmn")
-    target_col = st.selectbox('**Select the Target Colunmn**',options=df.columns)
+    target_col = st.selectbox('**Select the Target Colunmn First**',options=df.columns)
 
     # Input Output Columns
     x = df.drop(columns=target_col)
@@ -38,11 +38,11 @@ if file is not None:
 
     # Hyperparameter
     st.sidebar.subheader("Tune the Hyperparameter of Random Forest")
-    n_estimator = st.sidebar.slider("Number Of Estimators", min_value=10, max_value=200, step=20, value=100)
-    max_depth = st.sidebar.slider("Maximum Depth of Tree", min_value=1, max_value=20, value=5)
-    random_state = st.sidebar.slider("Choose Random_state", min_value=0, max_value=200, value=42)
-    criterion = st.sidebar.selectbox("Choose Criterion", options=['gini', 'entropy'], index=0)
-    max_features = st.sidebar.selectbox("Choose Max_Features", options=['sqrt', 'log2'], index=0)
+    n_estimator = st.sidebar.slider("**Number Of Estimators**", min_value=10, max_value=200, step=20, value=100)
+    max_depth = st.sidebar.slider("**Maximum Depth of Tree**", min_value=1, max_value=20, value=5)
+    random_state = st.sidebar.slider("**Choose Random_state**", min_value=0, max_value=200, value=42)
+    criterion = st.sidebar.selectbox("**Choose Criterion**", options=['gini', 'entropy'], index=1)
+    max_features = st.sidebar.selectbox("**Choose Max_Features**", options=['sqrt', 'log2'], index=0)
     
 
 
